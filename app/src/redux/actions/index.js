@@ -23,10 +23,10 @@ export const getAllTodos = () => async (dispatch) => {
 
 export const toggleDone = (id) => async (dispatch) => {
     try {
-        const res = await axios.put(`${API_URL}/todos/${id}`);
+        const res = await axios.put(`${API_URL}/todos/done/${id}`);
         dispatch({ type: TOGGLE_TODO , payload: res.data });
     } catch (error) {
-        console.log('Error while calling getAllTodos API ', error.message);
+        console.log('Error while calling  toggleDoneAPI ', error.message);
     }
 }
 
