@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
-function dbConnection () {
+function dbConnection() {
     const DB_URL = process.env.MONGO_URI;
-    
+
     mongoose.connect(DB_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true
@@ -16,4 +16,4 @@ function dbConnection () {
     })
 }
 
-module.exports = dbConnection
+module.exports = dbConnection;
