@@ -10,7 +10,9 @@ env.config();
 const app = express();
 app.use(express.json()); //parse the json 
 
-app.use(cors()); //use cors to connect across
+app.use(cors({
+    origin: 'http://localhost:3000'
+})); //use cors to connect across
 
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }))

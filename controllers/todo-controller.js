@@ -5,7 +5,7 @@ exports.getAllTodos = async(req,res) => {
         const todos = await todo.find({}).sort({ 'createdAt': -1 });
         return res.status(200).json(todos);
     } catch (error) {
-        return res.status(500).json(error.message);
+        return res.status(500).json({ error: 'Internal Server Error', message: error.message });
     }
 }
 
@@ -19,7 +19,7 @@ exports.addTodo = async(req, res) => {
         // await newTodo.save();
         return res.status(200).json(newTodo);
     } catch (error) {
-        return res.status(500).json(error.message);
+        return res.status(500).json({ error: 'Internal Server Error', message: error.message });
     }
 }
 
@@ -30,7 +30,7 @@ exports.updateTodo = async(req,res) => {
         const updatedTodo = await todo.findByIdAndUpdate(id, data, {new: true})
         return res.status(200).json(updatedTodo);
     } catch (error) {
-        return res.status(500).json(error.message);
+        return res.status(500).json({ error: 'Internal Server Error', message: error.message });
     }
 }
 
@@ -40,7 +40,7 @@ exports.deleteTodo = async(req,res) => {
         const deletedTodo = await todo.findByIdAndDelete(id)
         return res.status(200).json(deletedTodo);
     } catch (error) {
-        return res.status(500).json(error.message);
+        return res.status(500).json({ error: 'Internal Server Error', message: error.message });
     }
 }
 
@@ -52,6 +52,6 @@ exports.toggleDone = async(req,res) => {
         await currTodo.save();
         return res.status(200).json(markedDone);
     } catch (error) {
-        return res.status(500).json(error.message);
+        return res.status(500).json({ error: 'Internal Server Error', message: error.message });
     }
 }
