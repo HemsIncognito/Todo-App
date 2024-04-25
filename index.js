@@ -8,7 +8,7 @@ env.config();
 const app = express();
 app.use(express.json()); //parse the json 
 
-const PORT = 3000;
+const PORT = 8081;
 
 dbConnection();
 

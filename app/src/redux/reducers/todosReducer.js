@@ -1,21 +1,21 @@
-import * as actionTypes from '../actions/type';
+import * as actions from '../actions/type';
 
 
 export const todosReducers = (state = [], action) => {
 	switch (action.type) {
-		case actionTypes.ADD_TODO:
+		case actions.ADD_TODO:
 				return [action.payload, ...state]
-		case actionTypes.GETALL_TODO:
+		case actions.GETALL_TODO:
 				return action.payload
-		case actionTypes.TOGGLE_TODO:
+		case actions.TOGGLE_TODO:
 				return state.map(todo => (
 						todo._id === action.payload._id ? { ...todo, done: !todo.done } : todo
 				))
-		case actionTypes.UPDATE_TODO:
+		case actions.UPDATE_TODO:
 				return state.map(todo => (
 						todo._id === action.payload._id ? { ...todo, data: action.payload.data } : todo
 				))
-		case actionTypes.DELETE_TODO:
+		case actions.DELETE_TODO:
 				return state.filter(todo => todo._id !== action.payload._id);
 		
 		default: 

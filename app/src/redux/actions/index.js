@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { ADD_TODO, GETALL_TODO, TOGGLE_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TAB } from './type';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'http://localhost:8081';
 
 export const addTodo = (data) => async (dispatch) => {
     try {
         const res = await axios.post(`${API_URL}/todos`, { data });
         dispatch({ type: ADD_TODO , payload: res.data });
     } catch (error) {
-        console.log('Error while calling addNewTodo API ', error.message);
+        console.log('Error while calling addTodo API ', error.message);
     }
 }
 
